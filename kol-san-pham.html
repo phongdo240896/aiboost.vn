@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIBoost KOL Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            color: #d1d5db;
+        }
+        /* Custom scrollbar for a better look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        .glass-effect {
+            background: rgba(31, 41, 55, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+        .loader {
+            border: 4px solid #374151;
+            border-top: 4px solid #6366f1;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Custom radio button */
+        .custom-radio input[type="radio"] { display: none; }
+        .custom-radio img {
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: border-color 0.2s ease-in-out;
+        }
+        .custom-radio input[type="radio"]:checked + img {
+            border-color: #6366f1;
+            box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div id="app" class="flex flex-col h-screen">
+        <!-- Header -->
+        <header class="flex-shrink-0 bg-gray-900/50 backdrop-blur-sm border-b border-gray-700/50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center space-x-3">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-indigo-500">
+                            <path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 7L12 12L22 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h1 class="text-xl font-bold text-white">AIBoost KOL Studio</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                         <div class="text-sm font-medium text-gray-300">
+                            Số dư: <span id="wallet-balance" class="font-bold text-green-400">7,520 XU</span>
+                         </div>
+                        <button class="text-gray-400 hover:text-white">
+                            <i data-lucide="bell"></i>
+                        </button>
+                        <img src="https://placehold.co/40x40/6366f1/ffffff?text=U" alt="User Avatar" class="rounded-full">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 overflow-hidden">
+            
+            <!-- Left Panel: Control -->
+            <div class="lg:col-span-4 xl:col-span-3 flex flex-col space-y-6 overflow-y-auto">
+                <div class="glass-effect rounded-lg p-5 flex-shrink-0">
+                    <h2 class="text-lg font-semibold text-white mb-4">Bảng điều khiển chiến lược</h2>
+                    
+                    <!-- Step 1: Choose KOL -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-medium text-gray-300"><span class="font-bold text-indigo-400">Bước 1:</span> Chọn KOL đại diện</label>
+                        <div class="flex border border-gray-600 rounded-md p-1 bg-gray-900">
+                            <button id="tab-library" class="w-1/2 py-2 text-sm font-semibold rounded-md bg-indigo-600 text-white">Thư viện AIBoost</button>
+                            <button id="tab-upload" class="w-1/2 py-2 text-sm font-semibold text-gray-400">Tải lên của bạn</button>
+                        </div>
+                        
+                        <div id="kol-library">
+                             <div class="grid grid-cols-3 gap-3 custom-radio">
+                                <!-- Mock KOLs will be injected here -->
+                            </div>
+                        </div>
+
+                        <div id="kol-upload" class="hidden">
+                             <div id="kol-dropzone" class="flex items-center justify-center w-full">
+                                <label for="kol-file-upload" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-700/50 hover:bg-gray-700">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <i data-lucide="upload-cloud" class="w-8 h-8 mb-2 text-gray-400"></i>
+                                        <p class="mb-1 text-sm text-gray-400"><span class="font-semibold">Tải ảnh KOL</span> hoặc kéo thả</p>
+                                        <p class="text-xs text-gray-500">PNG, JPG (Tối đa 5MB)</p>
+                                    </div>
+                                    <input id="kol-file-upload" type="file" class="hidden" />
+                                </label>
+                            </div>
+                            <div id="kol-preview" class="hidden mt-2 text-center">
+                                <img id="kol-preview-img" class="mx-auto h-24 rounded-md"/>
+                                <p id="kol-preview-name" class="text-xs mt-1 text-gray-400"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Product Image -->
+                    <div class="mt-5 space-y-3">
+                        <label class="block text-sm font-medium text-gray-300"><span class="font-bold text-indigo-400">Bước 2:</span> Tải ảnh sản phẩm</label>
+                         <div id="product-dropzone" class="flex items-center justify-center w-full">
+                            <label for="product-file-upload" class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-700/50 hover:bg-gray-700">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <i data-lucide="package-plus" class="w-8 h-8 mb-2 text-gray-400"></i>
+                                    <p class="mb-1 text-sm text-gray-400"><span class="font-semibold">Tải ảnh sản phẩm</span></p>
+                                    <p class="text-xs text-gray-500">Ưu tiên ảnh tách nền (PNG)</p>
+                                </div>
+                                <input id="product-file-upload" type="file" class="hidden" />
+                            </label>
+                        </div>
+                         <div id="product-preview" class="hidden mt-2 text-center">
+                            <img id="product-preview-img" class="mx-auto h-24 rounded-md"/>
+                            <p id="product-preview-name" class="text-xs mt-1 text-gray-400"></p>
+                        </div>
+                    </div>
+                     <!-- Step 3: Prompt -->
+                    <div class="mt-5 space-y-3">
+                         <label for="prompt" class="block text-sm font-medium text-gray-300"><span class="font-bold text-indigo-400">Bước 3:</span> Mô tả bối cảnh (tùy chọn)</label>
+                        <textarea id="prompt" rows="3" class="w-full bg-gray-900 border border-gray-600 rounded-md text-sm text-gray-300 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ví dụ: đứng trong một quán cafe sang trọng, nền màu pastel, cầm sản phẩm trên tay..."></textarea>
+                    </div>
+                </div>
+                 <!-- Cost & Action -->
+                <div class="glass-effect rounded-lg p-5 mt-auto flex-shrink-0">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-medium text-gray-300">Chi phí dự kiến:</span>
+                        <span id="cost-display" class="text-lg font-bold text-amber-400">... XU</span>
+                    </div>
+                    <button id="generate-btn" class="w-full btn-primary text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
+                        <i data-lucide="sparkles" class="mr-2"></i>
+                        <span>TẠO ẢNH CHIẾN DỊCH</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Center Panel: Result -->
+            <div id="result-panel" class="lg:col-span-5 xl:col-span-6 glass-effect rounded-lg flex flex-col items-center justify-center p-6">
+                <div id="initial-state" class="text-center text-gray-400">
+                    <i data-lucide="image" class="w-24 h-24 mx-auto text-gray-600"></i>
+                    <h3 class="mt-4 text-lg font-semibold text-white">Không gian sáng tạo</h3>
+                    <p class="mt-1 text-sm">Hình ảnh của bạn sẽ xuất hiện tại đây.</p>
+                </div>
+
+                <div id="loading-state" class="hidden text-center text-gray-400">
+                    <div class="loader mx-auto"></div>
+                    <h3 class="mt-6 text-lg font-semibold text-white">Trợ lý AI đang trong phòng sáng tạo...</h3>
+                    <p class="mt-1 text-sm">Quá trình này có thể mất khoảng 30-60 giây.</p>
+                </div>
+
+                <div id="result-state" class="hidden w-full h-full">
+                    <img id="generated-image" src="" alt="Generated Image" class="w-full h-full object-contain rounded-md">
+                </div>
+            </div>
+
+            <!-- Right Panel: History -->
+            <div class="lg:col-span-3 xl:col-span-3 glass-effect rounded-lg flex flex-col p-5">
+                <h2 class="text-lg font-semibold text-white mb-4 flex-shrink-0">Thư viện nội dung đã tạo</h2>
+                 <div id="history-gallery" class="flex-grow overflow-y-auto space-y-4">
+                     <!-- Mock history will be injected here -->
+                     <div id="no-history" class="text-center text-gray-500 pt-10">
+                         <i data-lucide="archive" class="w-16 h-16 mx-auto"></i>
+                         <p class="mt-2 text-sm">Chưa có nội dung nào.</p>
+                     </div>
+                 </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // --- MOCK DATA ---
+        const MOCK_KOLS = [
+            { id: 1, name: 'Model Nam 01', src: 'https://placehold.co/150x150/2d3748/ffffff?text=KOL+1' },
+            { id: 2, name: 'Model Nữ 01', src: 'https://placehold.co/150x150/4a5568/ffffff?text=KOL+2' },
+            { id: 3, name: 'Model Nữ 02', src: 'https://placehold.co/150x150/718096/ffffff?text=KOL+3' },
+            { id: 4, name: 'Model Nam 02', src: 'https://placehold.co/150x150/a0aec0/111827?text=KOL+4' },
+            { id: 5, name: 'Model Nữ 03', src: 'https://placehold.co/150x150/cbd5e0/111827?text=KOL+5' },
+            { id: 6, name: 'Model Nam 03', src: 'https://placehold.co/150x150/e2e8f0/111827?text=KOL+6' },
+        ];
+
+        const MOCK_HISTORY = [];
+
+        // --- APPLICATION STATE ---
+        const state = {
+            selectedKol: null,
+            uploadedKol: null,
+            uploadedProduct: null,
+            prompt: '',
+            cost: 0,
+            isGenerating: false,
+        };
+
+        // --- DOM ELEMENTS ---
+        const tabLibrary = document.getElementById('tab-library');
+        const tabUpload = document.getElementById('tab-upload');
+        const kolLibraryDiv = document.getElementById('kol-library');
+        const kolUploadDiv = document.getElementById('kol-upload');
+        const kolDropzone = document.getElementById('kol-dropzone');
+        const kolFileInput = document.getElementById('kol-file-upload');
+        const kolPreview = document.getElementById('kol-preview');
+        const kolPreviewImg = document.getElementById('kol-preview-img');
+        const kolPreviewName = document.getElementById('kol-preview-name');
+        
+        const productDropzone = document.getElementById('product-dropzone');
+        const productFileInput = document.getElementById('product-file-upload');
+        const productPreview = document.getElementById('product-preview');
+        const productPreviewImg = document.getElementById('product-preview-img');
+        const productPreviewName = document.getElementById('product-preview-name');
+
+        const promptInput = document.getElementById('prompt');
+        const costDisplay = document.getElementById('cost-display');
+        const generateBtn = document.getElementById('generate-btn');
+        const walletBalance = document.getElementById('wallet-balance');
+
+        const initialStateDiv = document.getElementById('initial-state');
+        const loadingStateDiv = document.getElementById('loading-state');
+        const resultStateDiv = document.getElementById('result-state');
+        const generatedImage = document.getElementById('generated-image');
+        const historyGallery = document.getElementById('history-gallery');
+        const noHistoryDiv = document.getElementById('no-history');
+
+        // --- FUNCTIONS ---
+        function renderKols() {
+            const container = kolLibraryDiv.querySelector('.grid');
+            container.innerHTML = MOCK_KOLS.map(kol => `
+                <label class="custom-radio">
+                    <input type="radio" name="kol-select" value="${kol.id}">
+                    <img src="${kol.src}" alt="${kol.name}" class="rounded-lg w-full aspect-square object-cover">
+                </label>
+            `).join('');
+            
+            container.addEventListener('change', (e) => {
+                if(e.target.name === 'kol-select') {
+                    state.selectedKol = parseInt(e.target.value);
+                    state.uploadedKol = null;
+                    updateCost();
+                }
+            });
+        }
+        
+        function renderHistory() {
+            if (MOCK_HISTORY.length === 0) {
+                noHistoryDiv.style.display = 'block';
+                return;
+            }
+            noHistoryDiv.style.display = 'none';
+
+            historyGallery.innerHTML = MOCK_HISTORY.map(item => `
+                <div class="relative group">
+                    <img src="${item.src}" class="rounded-lg w-full aspect-[4/5] object-cover">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
+                        <div class="text-center text-white">
+                            <p class="text-xs">${item.prompt}</p>
+                            <span class="text-xs font-bold text-amber-400 mt-2 block">${item.cost} XU</span>
+                        </div>
+                    </div>
+                </div>
+            `).reverse().join('');
+        }
+
+        function updateCost() {
+            let baseCost = 0;
+            if (state.selectedKol) baseCost += 25; // Library KOL
+            if (state.uploadedKol) baseCost += 40; // Uploaded KOL is more expensive
+            if (state.uploadedProduct) baseCost += 5;
+            
+            state.cost = baseCost;
+            costDisplay.textContent = `${state.cost} XU`;
+            updateGenerateButtonState();
+        }
+
+        function updateGenerateButtonState() {
+             const hasKol = state.selectedKol || state.uploadedKol;
+             const hasProduct = state.uploadedProduct;
+             const sufficientBalance = parseFloat(walletBalance.textContent.replace(',', '')) >= state.cost;
+
+             if (hasKol && hasProduct && !state.isGenerating && sufficientBalance) {
+                 generateBtn.disabled = false;
+             } else {
+                 generateBtn.disabled = true;
+             }
+        }
+
+        function handleFileUpload(file, type) {
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (type === 'kol') {
+                    kolPreviewImg.src = e.target.result;
+                    kolPreviewName.textContent = file.name;
+                    kolDropzone.classList.add('hidden');
+                    kolPreview.classList.remove('hidden');
+                    state.uploadedKol = { name: file.name, src: e.target.result };
+                    state.selectedKol = null; // Deselect library Kols
+                    document.querySelectorAll('input[name="kol-select"]').forEach(radio => radio.checked = false);
+                } else {
+                    productPreviewImg.src = e.target.result;
+                    productPreviewName.textContent = file.name;
+                    productDropzone.classList.add('hidden');
+                    productPreview.classList.remove('hidden');
+                    state.uploadedProduct = { name: file.name, src: e.target.result };
+                }
+                updateCost();
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function handleGenerate() {
+            if(generateBtn.disabled) return;
+            
+            state.isGenerating = true;
+            updateGenerateButtonState();
+            
+            initialStateDiv.style.display = 'none';
+            resultStateDiv.style.display = 'none';
+            loadingStateDiv.style.display = 'block';
+
+            // Deduct from wallet visually
+            const currentBalance = parseFloat(walletBalance.textContent.replace(',', ''));
+            walletBalance.textContent = (currentBalance - state.cost).toLocaleString('vi-VN') + ' XU';
+
+            // Simulate API call
+            setTimeout(() => {
+                state.isGenerating = false;
+                
+                const newImageSrc = `https://placehold.co/600x750/111827/ffffff?text=Kết+quả+AI`;
+                generatedImage.src = newImageSrc;
+                
+                loadingStateDiv.style.display = 'none';
+                resultStateDiv.style.display = 'block';
+
+                const selectedKolName = state.selectedKol ? MOCK_KOLS.find(k => k.id === state.selectedKol).name : state.uploadedKol.name;
+                
+                // Add to history
+                MOCK_HISTORY.push({
+                    src: newImageSrc,
+                    prompt: `KOL ${selectedKolName} với sản phẩm ${state.uploadedProduct.name}`,
+                    cost: state.cost
+                });
+                renderHistory();
+                updateGenerateButtonState();
+            }, 3000); // 3-second delay
+        }
+
+        // --- EVENT LISTENERS ---
+        tabLibrary.addEventListener('click', () => {
+            tabLibrary.classList.add('bg-indigo-600', 'text-white');
+            tabLibrary.classList.remove('text-gray-400');
+            tabUpload.classList.add('text-gray-400');
+            tabUpload.classList.remove('bg-indigo-600', 'text-white');
+
+            kolLibraryDiv.style.display = 'block';
+            kolUploadDiv.style.display = 'none';
+
+            // Reset upload state if user switches back to library
+            state.uploadedKol = null;
+            updateCost();
+        });
+
+        tabUpload.addEventListener('click', () => {
+            tabUpload.classList.add('bg-indigo-600', 'text-white');
+            tabUpload.classList.remove('text-gray-400');
+            tabLibrary.classList.add('text-gray-400');
+            tabLibrary.classList.remove('bg-indigo-600', 'text-white');
+
+            kolLibraryDiv.style.display = 'none';
+            kolUploadDiv.style.display = 'block';
+            
+             // Reset library selection
+            state.selectedKol = null;
+            document.querySelectorAll('input[name="kol-select"]').forEach(radio => radio.checked = false);
+            updateCost();
+        });
+
+        kolFileInput.addEventListener('change', (e) => handleFileUpload(e.target.files[0], 'kol'));
+        productFileInput.addEventListener('change', (e) => handleFileUpload(e.target.files[0], 'product'));
+        
+        promptInput.addEventListener('input', (e) => {
+            state.prompt = e.target.value;
+            // In a real app, this might affect the cost
+        });
+
+        generateBtn.addEventListener('click', handleGenerate);
+
+        // --- INITIALIZATION ---
+        lucide.createIcons();
+        renderKols();
+        renderHistory();
+        updateCost();
+    </script>
+</body>
+</html>

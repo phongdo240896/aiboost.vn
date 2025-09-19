@@ -1,0 +1,94 @@
+AI-SaaS PHP Project Structure & Order of Implementation
+===================================================
+
+📂 Cấu trúc & Thứ tự triển khai
+
+ai-saas-php/
+│
+├─ (1) app/                 # Logic cốt lõi (PHP)
+│   ├─ (3) config.php       # Cấu hình: DB, API keys, biến môi trường
+│   ├─ (4) db.php           # Kết nối DB (MySQL hoặc Supabase REST API)
+│   ├─ (5) helpers.php      # Hàm tiện ích (sanitize, format, uuid…)
+│   ├─ (6) auth.php         # Đăng ký/Đăng nhập/Đăng xuất, quản lý session
+│   ├─ (6) middleware.php   # Hàm kiểm tra login, admin (RBAC)
+│   ├─     BankLog          # BankLog để quản lý log
+│   ├─ (8) models/          # Các lớp DAO/Model (User, Wallet, Asset…)
+│   │   ├─ User.php         # CRUD users, tìm theo email, quản lý role
+│   │   ├─ Wallet.php       # CRUD ví, cập nhật số dư
+│   │   ├─ Transaction.php  # Ghi nhận giao dịch credit/debit
+│   │   ├─ Asset.php        # Lưu kết quả ảnh/video/text sinh ra
+│   │   ├─ Order.php        # Quản lý job AI (video, ảnh…)
+│   │   ├─ Plan.php         # Dùng để đọc danh sách gói, tìm gói theo id, thêm/sửa/xoá gói.
+│   │   ├─ Subscription.php # quản lý việc người dùng đăng ký gói (bảng subscriptions).
+│   │   └─ 
+│   ├─ (10) services/       # Kết nối dịch vụ ngoài
+│   │   ├─ zenpn_client.php # Gọi API ZenPN → lấy sao kê ngân hàng
+│   │   ├─ gemini_client.php# Gọi API Gemini/Imagen tạo ảnh
+│   │   └─ veo_client.php   # Gọi API Veo tạo video
+│   └─ (10+) controllers/   # Xử lý request từ user
+│       ├─ SubscriptionController.php   # xử lý việc mua gói
+│       ├─ wallet_controller.php        # Logic cộng/trừ ví, ghi transaction
+│       ├─ bank_controller.php          # So khớp sao kê ↔ user (PAYCODE)
+│       ├─ image_controller.php         # Nhận prompt → gọi Gemini → lưu ảnh
+│       └─ video_controller.php         # Nhận prompt → tạo job video → poll kết quả
+│
+├─ (2) sql/
+│   └─ aiboost_schema.sql   # File schema DB, import phpMyAdmin
+│
+├─ (7) public/              # Frontend (người dùng)
+│   ├─ index.php            # Trang chủ (giới thiệu dịch vụ)
+│   ├─ login.php            # Form đăng nhập (gọi auth.php)
+│   ├─ register.php         # Form đăng ký
+│   ├─ logout.php           # Hủy session
+│   ├─ dashboard.php        # Trang chính sau login (hiện số dư, nút tạo ảnh/video)
+│   ├─ Profile.php          # Hiển thị thông tin người dùng
+│   ├─ topup.php            # Nạp tiền → hiển thị STK & PAYCODE
+│   ├─ pricing.php          # Giao diện đăng ký gói tháng
+│   ├─ subscribe.php        # nhận billing và gọi controller
+│   ├─ image.php            # Form nhập prompt tạo ảnh
+│   ├─ image_result.php     # Hiển thị ảnh đã sinh
+│   ├─ video.php            # Form nhập prompt tạo video
+│   ├─ video_status.php     # Hiển thị trạng thái job video
+│   ├─ uploads/             # Lưu ảnh/video sinh ra
+│   │   ├─ images/
+│   │   └─ videos/
+│   └─ assets/              # CSS/JS (Bootstrap, Tailwind…)
+│
+├─ (13) public/admin/       # Khu admin quản trị
+│   ├─ index.php            # Dashboard tổng (doanh thu, số user, job…)
+│   ├─ users.php            # Quản lý users (role, status)
+│   ├─ wallets.php          # Quản lý số dư ví
+│   ├─ package.php          # Quản lý gói user sử dụng
+│   ├─ transactions.php     # Xem & lọc giao dịch
+│   ├─ jobs.php             # Xem job AI, retry/xóa
+│   ├─ assets.php           # Quản lý kết quả ảnh/video/text
+│   ├─ bank_accounts.php    # Quản lý danh sách tài khoản ngân hàng
+│   ├─ bank_statements.php  # Xem sao kê ZenPN, match thủ công
+│   ├─ settings.php         # Cấu hình hệ thống (API key, giá credit)
+│   └─ logs.php             # Log lỗi & log hệ thống
+│
+├─ (10) cron/               # Cron jobs (chạy tự động trên host)
+│   ├─ zenpn_topup.php      # Poll API ZenPN → nạp tiền tự động
+│   └─ poll_veo.php         # Poll API Veo → cập nhật job video
+│
+└─ (14) .vscode/
+    └─ sftp.json            # Tự động upload code lên host khi Save
+
+
+📌 Thứ tự ưu tiên thực hiện
+
+1. Khởi tạo dự án: tạo đầy đủ thư mục rỗng theo sơ đồ.
+2. Database: import sql/aiboost_schema.sql → phpMyAdmin.
+3. config.php: thông tin DB, BASE_URL, API keys.
+4. db.php: kết nối DB (MySQL hoặc Supabase REST API).
+5. helpers.php: hàm tiện ích.
+6. auth.php + middleware.php: đăng ký/đăng nhập/session.
+7. public/login.php, register.php, dashboard.php: test luồng user cơ bản.
+8. models/: xây dựng class cho User, Wallet, Transaction.
+9. wallet_controller.php + topup.php: UI nạp tiền (tạm cộng thủ công).
+10. ZenPN auto nạp: service + controller + cron.
+11. gemini_client.php + image_controller.php + image.php: tạo ảnh.
+12. veo_client.php + video_controller.php + video.php: tạo video.
+13. admin/: dashboard quản trị & chức năng nâng cao.
+14. cron jobs: set crontab/cPanel cron cho auto nạp & poll job.
+15. Bảo mật + giao diện: CSRF, session secure, Bootstrap/Tailwind.

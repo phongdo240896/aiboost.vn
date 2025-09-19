@@ -1,0 +1,177 @@
+[16-Sep-2025 00:31:40 Asia/Ho_Chi_Minh] === CRON START - 2025-09-16 00:31:40 ===
+
+[16-Sep-2025 00:31:40 Asia/Ho_Chi_Minh] 🏦 Checking bank: Ngân hàng ACB (ACB)
+
+[16-Sep-2025 00:31:40 Asia/Ho_Chi_Minh] 📡 Calling API: https://api.zenpn.com/api/historyacb/92ed7de833c68...
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] 📊 Response Code: 200
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ✅ Found 20 transactions from API
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] 
+📊 Processing 19 deposit transactions...
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3137
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3136
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3135
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3134
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3133
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3132
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3131
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3130
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3129
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3128
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3127
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3126
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3125
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3124
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3123
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3121
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3120
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3119
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3118
+
+[16-Sep-2025 00:31:41 Asia/Ho_Chi_Minh] 
+=== CRON COMPLETE ===
+Time: 2025-09-16 00:31:41 (Duration: 0.89s)
+Processed: 0 transactions
+Skipped: 20 transactions
+Errors: 0
+New saved: 0
+
+[16-Sep-2025 00:34:35 Asia/Ho_Chi_Minh] === CRON START - 2025-09-16 00:34:35 ===
+
+[16-Sep-2025 00:34:35 Asia/Ho_Chi_Minh] 🏦 Checking bank: Ngân hàng ACB (ACB)
+
+[16-Sep-2025 00:34:35 Asia/Ho_Chi_Minh] 📡 Calling API: https://api.zenpn.com/api/historyacb/92ed7de833c68...
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] 📊 Response Code: 200
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ✅ Found 20 transactions from API
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] 
+📊 Processing 19 deposit transactions...
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3137
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3136
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3135
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3134
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3133
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3132
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3131
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3130
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3129
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3128
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3127
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3126
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3125
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3124
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3123
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3121
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3120
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3119
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3118
+
+[16-Sep-2025 00:34:36 Asia/Ho_Chi_Minh] 
+=== CRON COMPLETE ===
+Time: 2025-09-16 00:34:36 (Duration: 0.73s)
+Processed: 0 transactions
+Skipped: 20 transactions
+Errors: 0
+New saved: 0
+
+[16-Sep-2025 00:49:52 Asia/Ho_Chi_Minh] === CRON START - 2025-09-16 00:49:52 ===
+
+[16-Sep-2025 00:49:52 Asia/Ho_Chi_Minh] 🏦 Checking bank: Ngân hàng ACB (ACB)
+
+[16-Sep-2025 00:49:52 Asia/Ho_Chi_Minh] 📡 Calling API: https://api.zenpn.com/api/historyacb/92ed7de833c68...
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] 📊 Response Code: 200
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ✅ Found 20 transactions from API
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] 
+📊 Processing 19 deposit transactions...
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3138
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3137
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3136
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3135
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3134
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3133
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3132
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3131
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3130
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3129
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3128
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3127
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3126
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3125
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3124
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3123
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3121
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3120
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] ⏭️ Skip duplicate: 3119
+
+[16-Sep-2025 00:49:53 Asia/Ho_Chi_Minh] 
+=== CRON COMPLETE ===
+Time: 2025-09-16 00:49:53 (Duration: 0.69s)
+Processed: 0 transactions
+Skipped: 20 transactions
+Errors: 0
+New saved: 0
+

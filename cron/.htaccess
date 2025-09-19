@@ -1,0 +1,12 @@
+# Allow all PHP files to be executed
+Options +ExecCGI
+AddHandler application/x-httpd-php .php
+
+# Allow direct access
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Disable parent rewrite rules for this directory
+RewriteEngine Off

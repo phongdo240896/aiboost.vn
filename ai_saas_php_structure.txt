@@ -1,0 +1,73 @@
+
+ai-saas-php/
+├─ public/                          # Webroot (up vào public_html)
+│  ├─ index.php                     # Trang chủ (marketing/landing)
+│  ├─ login.php                     # Đăng nhập
+│  ├─ register.php                  # Đăng ký
+│  ├─ logout.php
+│  ├─ dashboard.php                 # Khu người dùng sau login
+│  ├─ topup.php                     # Hướng dẫn nạp + xem số dư
+│  ├─ image.php                     # Form tạo ảnh (gửi prompt)
+│  ├─ image_result.php              # Xem kết quả ảnh
+│  ├─ video.php                     # Form tạo video (khởi tạo job)
+│  ├─ video_status.php              # Theo dõi trạng thái job/video
+│  │
+│  ├─ admin/                        # KHU VỰC QUẢN TRỊ
+│  │  ├─ index.php                  # Admin Dashboard
+│  │  ├─ users.php                  # Quản lý người dùng
+│  │  ├─ wallets.php                # Quản lý ví
+│  │  ├─ transactions.php           # Lịch sử nạp/rút
+│  │  ├─ jobs.php                   # Quản lý toàn bộ jobs
+│  │  ├─ assets.php                 # Quản lý file ảnh/video
+│  │  ├─ bank_statements.php        # Sao kê ZenPN
+│  │  ├─ settings.php               # Thiết lập hệ thống
+│  │  ├─ logs.php                   # Nhật ký hệ thống
+│  ├─ partials/                  # Layout dùng lại
+│  │  ├─ header.php
+│  │  ├─ sidebar.php
+│  │  ├─ footer.php
+│  ├─ assets/                    # CSS/JS riêng cho admin
+│  │
+│  ├─ assets/                       # CSS/JS chung
+│  └─ uploads/
+│     ├─ images/                    # Ảnh sinh ra
+│     └─ videos/                    # Video sinh ra
+│
+├─ app/                             # Business logic
+│  ├─ config.php                    # ENV (DB, GEMINI, ZenPN, ...)
+│  ├─ db.php                        # Kết nối MySQL
+│  ├─ helpers.php                   # Hàm tiện ích
+│  ├─ auth.php                      # Auth, session, role
+│  ├─ middleware.php                # require_login(), require_admin()
+│  ├─ rbac.php                      # Vai trò/permission (tuỳ chọn)
+│  │
+│  ├─ controllers/
+│  │  ├─ image_controller.php       # Xử lý tạo ảnh
+│  │  ├─ video_controller.php       # Xử lý tạo video
+│  │  ├─ wallet_controller.php      # Ví/credit
+│  │  ├─ bank_controller.php        # ZenPN & sao kê
+│  │  ├─ job_controller.php         # Quản lý job
+│  │  └─ admin_controller.php       # Xử lý cho admin
+│  │
+│  ├─ services/
+│  │  ├─ gemini_client.php          # Gọi Gemini API (Imagen/Veo)
+│  │  └─ zenpn_client.php           # Gọi ZenPN API
+│  │
+│  ├─ models/                       # DAO cho MySQL
+│  │  ├─ User.php
+│  │  ├─ Wallet.php
+│  │  ├─ WalletTx.php
+│  │  ├─ BankStatement.php
+│  │  ├─ Job.php
+│  │  └─ Asset.php
+│  │
+│  └─ views/                        # Nếu muốn tách view
+│
+├─ cron/
+│  ├─ poll_veo.php                  # Cron poll Veo 3, tải MP4
+│  └─ zenpn_topup.php               # Cron ZenPN, cộng credit
+│
+├─ sql/
+│  └─ schema.sql                    # Cấu trúc DB MySQL
+│
+└─ .htaccess                        # Rewrite & bảo vệ thư mục

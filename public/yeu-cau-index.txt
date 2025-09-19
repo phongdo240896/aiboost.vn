@@ -1,0 +1,129 @@
+CẤU TRÚC & NỘI DUNG CHI TIẾT WEBSITE AIBOOST.VN
+
+SECTION 1: HERO SECTION (KHU VỰC CHÍNH - NGAY KHI VÀO TRANG)
+Mục tiêu: Gây sốc và giữ chân khách hàng ngay lập tức.
+
+Hình ảnh/Video nền: Một video ngắn lặp lại (loop) hoặc hình ảnh động (animation) mô tả sự chuyển đổi: Từ một người trông căng thẳng, bận rộn với hàng tá công việc (giấy tờ, máy tính, điện thoại) -> chuyển cảnh mượt mà sang một người trông tự tin, thảnh thơi, đang xem biểu đồ tăng trưởng trên laptop/tablet, bên cạnh có logo Aiboost.vn hoạt động. (nếu không có thì dẫn link youtube để thay)
+
+Dòng tiêu đề chính (Headline): NGỪNG LÀM THỢ, BẮT ĐẦU LÀM CHỦ.
+Tiêu đề phụ 1: Giải Phóng Khỏi Content, Tập Trung Tăng Trưởng.
+Tiêu đề phụ 2: Để AI Thay Bạn Sáng Tạo, Giành Lại Thời Gian Cho Gia Đình.
+
+Đoạn mô tả ngắn (Sub-headline): Aiboost.vn là Trợ lý AI chiến lược đầu tiên tại Việt Nam, giúp bạn tự động hóa 90% công việc sáng tạo (content, hình ảnh, video). Trả lại cho bạn thời gian và tâm trí để thực sự điều hành và phát triển doanh nghiệp.
+
+Nút kêu gọi hành động (Call-to-Action - CTA):
+
+Nút chính (màu nổi bật): DÙNG THỬ MIỄN PHÍ NGAY
+
+Dòng chữ nhỏ bên dưới nút: Không cần thẻ tín dụng. Bắt đầu làm chủ trong 2 phút.
+
+SECTION 2: SOCIAL PROOF (BẰNG CHỨNG XÃ HỘI)
+Mục tiêu: Xây dựng niềm tin ngay lập tức.
+
+Tiêu đề: ĐƯỢC TIN DÙNG BỞI HÀNG NGÀN NHÀ KINH DOANH TRÊN KHẮP VIỆT NAM
+
+Nội dung: Dải logo của các sàn TMĐT (Shopee, Lazada, Tiki), các đơn vị vận chuyển, các đối tác hoặc các trang báo đã đưa tin (CafeBiz, Brands Vietnam,...) để tăng độ uy tín.
+
+SECTION 3: THE PROBLEM (NỖI ĐAU CỦA "NGƯỜI THỢ")
+Mục tiêu: Chạm vào nỗi đau, khiến khách hàng gật gù đồng cảm.
+
+Tiêu đề: Là 'CHỦ', nhưng bạn có đang kẹt trong công việc của một 'NHÂN VIÊN'?
+
+Nội dung: Sử dụng các icon và đoạn text ngắn để mô tả các vấn đề:
+
+(Icon đồng hồ cát) MẤT HÀNG GIỜ MỖI NGÀY: Cho việc vắt óc viết content, mày mò thiết kế từng tấm ảnh, cắt ghép video.
+
+(Icon bóng đèn vỡ) LIÊN TỤC BÍ Ý TƯỞNG: Không biết hôm nay đăng gì, tuần sau quảng cáo gì để thu hút khách hàng.
+
+(Icon tiền bay) TỐN KÉM CHI PHÍ: Chi hàng chục triệu mỗi tháng để thuê mẫu, designer, content creator nhưng hiệu quả không như ý.
+
+(Icon biểu đồ đi xuống) BỎ LỠ CƠ HỘI: Bị sa đà vào việc "thợ", không còn thời gian nghiên cứu sản phẩm mới, chăm sóc khách hàng hay xây dựng chiến lược lớn.
+
+SECTION 4: THE SOLUTION (GIẢI PHÁP TỪ "NGƯỜI LÀM CHỦ")
+Mục tiêu: Giới thiệu Aiboost.vn như một người hùng giải cứu.
+
+Tiêu đề: AIBOOST.VN: TRAO QUYỀN CHO NGƯỜI LÀM CHỦ
+
+Nội dung: Chúng tôi không chỉ đưa cho bạn công cụ. Chúng tôi trao cho bạn một bộ óc sáng tạo nhân tạo, một đội quân marketing không bao giờ ngủ, luôn sẵn sàng thực thi mọi ý tưởng của bạn chỉ trong vài phút.
+
+Quy trình 3 bước đơn giản:
+
+RA LỆNH: Nhập yêu cầu của bạn (Vd: "Viết bài quảng cáo son môi", "Tạo ảnh mẫu tây cầm túi xách").
+
+AI SÁNG TẠO: Trợ lý Aiboost sẽ tạo ra hàng loạt phiên bản content, hình ảnh, video chỉ trong chớp mắt.
+
+BẠN LÀM CHỦ: Lựa chọn phiên bản tốt nhất, chỉnh sửa nếu muốn và sử dụng để tăng trưởng kinh doanh.
+
+SECTION 5: FEATURES AS BENEFITS (TÍNH NĂNG DƯỚI GÓC ĐỘ LỢI ÍCH CỦA NGƯỜI CHỦ)
+Mục tiêu: Cho thấy các tính năng thực sự giải quyết vấn đề và củng cố vai trò "làm chủ".
+
+Tiêu đề: TRỢ LÝ AI TOÀN NĂNG CỦA BẠN CÓ THỂ LÀM GÌ?
+
+(Mỗi tính năng là một khối riêng, có hình ảnh minh họa/video demo ngắn)
+
+Bộ Não Content Không Giới Hạn (AI Content):
+
+Thay vì nói: "Viết content tự động".
+
+Hãy nói: "Bạn không còn phải vắt óc suy nghĩ. Chỉ cần ra đề bài, AI sẽ cung cấp nhiều kịch bản quảng cáo, bài đăng, mô tả sản phẩm... để bạn lựa chọn như một giám đốc nội dung."
+
+Studio Ảnh Ảo Bạc Tỷ (AI Image):
+
+Thay vì nói: "Tạo ảnh sản phẩm".
+
+Hãy nói: "Tiết kiệm hàng chục triệu chi phí thuê mẫu và studio. Bạn có toàn quyền chỉ đạo 'người mẫu AI', 'nhiếp ảnh gia AI' tạo ra những bộ ảnh sản phẩm độc quyền, chuyên nghiệp chỉ trong vài phút." (Nhấn mạnh các tính năng: tạo ảnh thời trang, ảnh cầm sản phẩm).
+
+Ekip Sản Xuất Video 24/7 (AI Video):
+
+Thay vì nói: "Làm video tự động".
+
+Hãy nói: "Biến mọi ý tưởng của bạn thành video review, video quảng cáo viral... mà không cần kỹ năng phức tạp. Bạn là đạo diễn, AI là ekip sản xuất."
+
+SECTION 6: TESTIMONIALS (KHÁCH HÀNG NÓI VỀ CHÚNG TÔI)
+Mục tiêu: Dùng bằng chứng từ người thật việc thật để tăng niềm tin.
+
+Tiêu đề: NGƯỜI TRONG CUỘC NÓI GÌ VỀ VIỆC ĐƯỢC "GIẢI PHÓNG"?
+
+Nội dung: Hiển thị 2-3 nhận xét tốt nhất. Mỗi nhận xét gồm:
+
+Hình ảnh chân thật của khách hàng.
+
+Tên, chức vụ, tên shop/công ty.
+
+Đoạn trích dẫn tập trung vào sự thay đổi: "Nhờ Aiboost, tôi đã có thêm 10 tiếng mỗi tuần để nghiên cứu thị trường và tìm nguồn hàng mới. Doanh thu quý vừa rồi tăng 30% mà tôi lại nhàn hơn hẳn."
+
+SECTION 7: PRICING (BẢNG GIÁ)
+Mục tiêu: Rõ ràng, minh bạch và thuyết phục khách hàng rằng đây là một khoản ĐẦU TƯ.
+
+Tiêu đề: CHỌN GÓI ĐẦU TƯ THÔNG MINH CHO DOANH NGHIỆP CỦA BẠN
+
+Nội dung: Trình bày các gói giá (Vd: Khởi Nghiệp, Làm Chủ, Đội Nhóm) dưới dạng cột so sánh.
+
+Làm nổi bật gói "Làm Chủ" với tag "Lựa chọn của 90% khách hàng" hoặc "Phổ biến nhất".
+
+Dưới mỗi gói, có nút CTA: Bắt Đầu Với Gói Làm Chủ
+
+SECTION 8: FAQ (CÂU HỎI THƯỜNG GẶP)
+Mục tiêu: Giải quyết các rào cản, thắc mắc cuối cùng của khách hàng.
+
+Nội dung:
+
+Tôi không rành công nghệ có dùng được không? (Trả lời: Giao diện được thiết kế cho người làm chủ, không phải chuyên gia công nghệ, cực kỳ dễ dùng).
+
+AI có thể tạo nội dung phù hợp với ngành hàng của tôi không?
+
+Hình ảnh AI tạo ra có bị trùng lặp không? Có sợ vấn đề bản quyền không?
+
+Sử dụng Aiboost có thực sự giúp tôi tăng doanh thu không?
+
+SECTION 9: FINAL CTA (KÊU GỌI HÀNH ĐỘNG CUỐI CÙNG)
+Mục tiêu: Tạo cú hích cuối cùng để khách hàng không rời đi mà không hành động.
+
+Tiêu đề: Sẵn Sàng Trở Thành Người Dẫn Đầu Cuộc Chơi?
+
+Nội dung: Hãy để Aiboost lo phần việc 'thợ', còn bạn tập trung vào việc đưa doanh nghiệp của mình lên tầm cao mới. Tương lai kinh doanh của bạn nằm trong tay bạn.
+
+Nút CTA lớn, nổi bật: TRẢI NGHIỆM MIỄN PHÍ VAI TRÒ "LÀM CHỦ" NGAY
+
+
+Yêu cầu: UX trải nghiệm khách hàng tốt nhất trên mọi nền tảng, chuẩn SEO 

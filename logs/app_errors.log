@@ -1,0 +1,21 @@
+[15-Sep-2025 14:49:51 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Undefined constant "APP_ENV" in /home/sdvybfld/aiboost.vn/app/db.php:39
+Stack trace:
+#0 /home/sdvybfld/aiboost.vn/app/db.php(19): Database->connect()
+#1 /home/sdvybfld/aiboost.vn/app/db.php(324): Database->__construct()
+#2 /home/sdvybfld/aiboost.vn/public/topup.php(3): require_once('/home/sdvybfld/...')
+#3 {main}
+  thrown in /home/sdvybfld/aiboost.vn/app/db.php on line 39
+[15-Sep-2025 14:49:53 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Undefined constant "APP_ENV" in /home/sdvybfld/aiboost.vn/app/db.php:39
+Stack trace:
+#0 /home/sdvybfld/aiboost.vn/app/db.php(19): Database->connect()
+#1 /home/sdvybfld/aiboost.vn/app/db.php(324): Database->__construct()
+#2 /home/sdvybfld/aiboost.vn/public/topup.php(3): require_once('/home/sdvybfld/...')
+#3 {main}
+  thrown in /home/sdvybfld/aiboost.vn/app/db.php on line 39
+[15-Sep-2025 14:49:57 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Undefined constant "APP_ENV" in /home/sdvybfld/aiboost.vn/app/db.php:39
+Stack trace:
+#0 /home/sdvybfld/aiboost.vn/app/db.php(19): Database->connect()
+#1 /home/sdvybfld/aiboost.vn/app/db.php(324): Database->__construct()
+#2 /home/sdvybfld/aiboost.vn/public/login.php(3): require_once('/home/sdvybfld/...')
+#3 {main}
+  thrown in /home/sdvybfld/aiboost.vn/app/db.php on line 39

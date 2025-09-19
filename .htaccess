@@ -1,0 +1,115 @@
+RewriteEngine On
+
+# ========================================
+# ALLOW ROOT TEST FILES & CRON
+# ========================================
+# Cho phép truy cập trực tiếp các file test ở root
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} ^/test.*\.php$
+RewriteRule ^ - [L]
+
+# Cho phép truy cập file cron (cả có và không có .php)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} ^/cron/
+RewriteRule ^ - [L]
+
+# Cho phép truy cập file image (cả có và không có .php)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} ^/images/
+RewriteRule ^ - [L]
+# Cho phép truy cập file css (cả có và không có .php)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteCond %{REQUEST_URI} ^/css/
+RewriteRule ^ - [L]
+
+# ========================================
+# API ENDPOINTS
+# ========================================
+RewriteRule ^api/(.*)$ public/api/$1 [L]
+
+# ========================================
+# SECURITY - Protect sensitive directories
+# ========================================
+# IMPORTANT: Chỉ block DIRECT ACCESS từ browser, không block PHP include/require
+# Block direct access to app/ folder VIA HTTP (không ảnh hưởng PHP include)
+RewriteCond %{THE_REQUEST} \s/app/ [NC]
+RewriteRule ^app/ - [F,L]
+
+# Block direct access to vendor, logs folders
+RewriteCond %{THE_REQUEST} \s/vendor/ [NC]
+RewriteRule ^vendor/ - [F,L]
+
+RewriteCond %{THE_REQUEST} \s/logs/ [NC]
+RewriteRule ^logs/ - [F,L]
+
+# ========================================
+# DEFAULT INDEX
+# ========================================
+RewriteRule ^/?$ public/index.php [L]
+
+# ========================================
+# ADMIN ROUTES (support both with and without .php)
+# ========================================
+RewriteRule ^admin/?$ public/admin/index.php [L]
+RewriteRule ^admin/(bank_accounts|package|wallets|bank_monitor|users|promotion|notifications|email_settings|subscription_reminders)(\.php)?/?$ public/admin/$1.php [L]
+
+# Admin AJAX routes
+RewriteRule ^admin/ajax/(.*)$ public/admin/ajax/$1 [L]
+
+# ========================================
+# NOTIFICATION ROUTES
+# ========================================
+RewriteRule ^notifications(\.php)?/?$ public/notifications/index.php [L]
+RewriteRule ^api/notifications(\.php)?/?$ public/api/notifications.php [L]
+RewriteRule ^api/mark-notification-read(\.php)?/?$ public/api/mark-notification-read.php [L]
+RewriteRule ^api/mark-all-notifications-read(\.php)?/?$ public/api/mark-all-notifications-read.php [L]
+
+# ========================================
+# PUBLIC PAGES (support both with and without .php)
+# ========================================
+RewriteRule ^index(\.php)?/?$ public/index.php [L]
+RewriteRule ^register(\.php)?/?$ public/register.php [L]
+RewriteRule ^login(\.php)?/?$ public/login.php [L]
+RewriteRule ^logout(\.php)?/?$ public/logout.php [L]
+RewriteRule ^dashboard(\.php)?/?$ public/dashboard.php [L]
+RewriteRule ^topup(\.php)?/?$ public/topup.php [L]
+RewriteRule ^pricing(\.php)?/?$ public/pricing.php [L]
+RewriteRule ^subscribe(\.php)?/?$ public/subscribe.php [L]
+RewriteRule ^profile(\.php)?/?$ public/profile.php [L]
+RewriteRule ^wallet(\.php)?/?$ public/wallet.php [L]
+RewriteRule ^checkout(\.php)?/?$ public/checkout.php [L]
+RewriteRule ^subscription-required(\.php)?/?$ public/subscription-required.php [L]
+
+# ========================================
+# STATIC FILES
+# ========================================
+RewriteRule ^(css|js|images|assets)/(.*)$ public/$1/$2 [L]
+
+# ========================================
+# CRON FILES (direct access)
+# ========================================
+# Cho phép truy cập trực tiếp file cron với hoặc không có .php
+RewriteRule ^cron/([^/]+)(\.php)?/?$ cron/$1.php [L]
+
+# ========================================
+# ROOT TEST FILES (direct access)
+# ========================================
+# Cho phép truy cập file test ở root với hoặc không có .php
+RewriteRule ^(test[^/]*)(\.php)?/?$ $1.php [L]
+
+# ========================================
+# FALLBACK RULES
+# ========================================
+# Check if file exists in public folder
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/public/$1.php -f
+RewriteRule ^([^/]+)(\.php)?/?$ public/$1.php [L]
+
+# Admin fallback - any unmatched admin route
+RewriteRule ^admin/([^/]+)(\.php)?/?$ public/admin/$1.php [L]
+
+# Final fallback - try to find in public
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]
